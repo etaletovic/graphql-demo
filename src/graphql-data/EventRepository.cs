@@ -27,6 +27,11 @@ namespace graphql_data
             };
         }
 
+        public Event Add(Event arg)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Event> Get()
         {
             return events;
