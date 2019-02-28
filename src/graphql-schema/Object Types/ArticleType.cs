@@ -3,9 +3,9 @@ using HotChocolate.Types;
 
 namespace graphql_schema.Object_Types
 {
-    public class EventType : ObjectType<Event>
+    public class ArticleType : ObjectType<Article>
     {
-        protected override void Configure(IObjectTypeDescriptor<Event> descriptor)
+        protected override void Configure(IObjectTypeDescriptor<Article> descriptor)
         {
             descriptor.Name("Event");
 

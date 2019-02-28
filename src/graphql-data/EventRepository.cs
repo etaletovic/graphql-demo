@@ -7,7 +7,7 @@ namespace graphql_data
 {
     public class EventRepository : IDataRepository<Event>
     {
-        private List<Event> events;
+        private readonly List<Event> events;
 
         public EventRepository()
         {

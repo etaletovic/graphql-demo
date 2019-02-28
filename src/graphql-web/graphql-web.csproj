@@ -5,7 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="App.config" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
 
   <ItemGroup>

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using graphql_common;
+using graphql_data;
 using GraphiQl;
 using graphql_schema;
 using HotChocolate;
@@ -21,6 +23,9 @@ namespace graphql_web
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IDataRepository<Article>, NewsRepository>();
+            services.AddSingleton<IDataRepository<Event>, EventRepository>();
+
             services.AddGraphQL(sp => Schema.Create(c =>
             {
                 c.RegisterServiceProvider(sp);
