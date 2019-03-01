@@ -1,5 +1,4 @@
 ﻿using graphql_common;
-using HotChocolate.Language;
 using HotChocolate.Types;
 
 namespace graphql_schema.Object_Types
@@ -8,13 +7,10 @@ namespace graphql_schema.Object_Types
     {
         protected override void Configure(IInputObjectTypeDescriptor<Article> descriptor)
         {
-            //base.Configure(descriptor);
+            descriptor.Name("ArticleInput");
 
-            descriptor.Name("Article");
-
-            descriptor.Field(f => f.Id)
-                .Type<IntType>()
-                .DefaultValue(0);
+            descriptor.Field(f => f.Id).Type <NonNullType<IntType>>().DefaultValue(0);
+            descriptor.Field(f => f.Images).Type<NonNullType<ListType<ImageInputType>>>();
         }
     }
 }

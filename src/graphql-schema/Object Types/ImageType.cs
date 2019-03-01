@@ -7,7 +7,7 @@ namespace graphql_schema.Object_Types
     {
         protected override void Configure(IObjectTypeDescriptor<Image> descriptor)
         {
-            descriptor.Name("Image");
+            descriptor.Name("image");
 
             descriptor.Field(f => f.Size).Type<IntType>();
             descriptor.Field(f => f.Url).Type<StringType>();

@@ -30,8 +30,8 @@ namespace graphql_web
             services.AddGraphQL(sp => Schema.Create(c =>
             {
                 c.RegisterServiceProvider(sp);
-                c.RegisterQueryType<Query>();
-                c.RegisterMutationType<Mutation>();
+                c.RegisterQueryType<QueryType>();
+                c.RegisterMutationType<MutationType>();
             }));
         }
  
