@@ -4,8 +4,9 @@ using System.Collections.Generic;
 
 namespace graphql_data
 {
-    public interface IDataRepository<out T>
+    public interface IDataRepository<T>
     {
         IEnumerable<T> Get();
+        T Add(T arg);
     }
 }

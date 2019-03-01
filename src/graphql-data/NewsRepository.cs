@@ -1,6 +1,7 @@
 ﻿using graphql_common;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace graphql_data
@@ -25,6 +26,13 @@ namespace graphql_data
                 new Article(){Description = "Article 10 Description which is not really long.", Id = 10, Title = "Article 10 Title"},
 
             };
+        }
+
+        public Article Add(Article arg)
+        {
+            arg.Id = news.Last().Id + 1;
+            news.Add(arg);
+            return arg;
         }
 
         public IEnumerable<Article> Get()
