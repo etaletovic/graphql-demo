@@ -4,13 +4,13 @@ using HotChocolate.Types;
 
 namespace graphql_schema.Object_Types
 {
-    class MutationType : ObjectType<Mutation>
+    public class MutationType : ObjectType<Mutation>
     {
         protected override void Configure(IObjectTypeDescriptor<Mutation> descriptor)
         {
-            descriptor.Field(f => f.CreateArticle(default(Article))).Type<NonNullType<ArticleType>>()
-                .Argument("article", a=>a.Type<NonNullType<ArticleInputType>>());
-
+            descriptor.Field(f => f.CreateArticle(default(Article)))
+                .Type<NonNullType<ArticleType>>()
+                .Argument("article", a => a.Type<NonNullType<ArticleInputType>>());
         }
     }
 }

@@ -6,6 +6,7 @@ using graphql_common;
 using graphql_data;
 using GraphiQl;
 using graphql_schema;
+using graphql_schema.Object_Types;
 using HotChocolate;
 using HotChocolate.AspNetCore;
 using HotChocolate.Execution;
@@ -30,6 +31,7 @@ namespace graphql_web
             {
                 c.RegisterServiceProvider(sp);
                 c.RegisterQueryType<Query>();
+                c.RegisterMutationType<Mutation>();
             }));
         }
  
