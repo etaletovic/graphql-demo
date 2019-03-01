@@ -1,6 +1,7 @@
 ﻿using graphql_common;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace graphql_data
@@ -31,5 +32,12 @@ namespace graphql_data
         {
             return events;
         }
+
+        public IEnumerable<Event> Get(string titleContains)
+        {
+            return events.Where(e => string.IsNullOrEmpty(e.Title) == false && e.Title.Contains(titleContains)).ToList();
+        }
+
+        
     }
 }

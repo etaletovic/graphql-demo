@@ -8,17 +8,23 @@ namespace graphql_schema
 {
     public class Query
     {
-        private IDataRepository<Event> eventRepository;
+        private EventRepository eventRepository;
         private IDataRepository<Article> newsRepository;
 
         public Query(IDataRepository<Event> eventRepository, IDataRepository<Article> newsRepository)
         {
-            this.eventRepository = eventRepository ?? throw new ArgumentNullException(nameof(eventRepository));
+            this.eventRepository = eventRepository as EventRepository ?? throw new ArgumentNullException(nameof(eventRepository));
             this.newsRepository = newsRepository ?? throw new ArgumentNullException(nameof(newsRepository));
         }
         public string Version() => ConfigurationManager.AppSettings["version"];
 
-        public IEnumerable<Event> Events => eventRepository.Get();
+        public IEnumerable<Event> GetEvents(string titleContains = default(string))
+        {
+            if (titleContains == default(string)) return eventRepository.Get();
+
+            return eventRepository.Get(titleContains);
+        }
+
         public IEnumerable<Article> News => newsRepository.Get();
 
         public IEnumerable<Image> Images

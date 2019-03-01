@@ -8,7 +8,7 @@ namespace graphql_schema.Object_Types
         {
             descriptor.Field(f => f.Version()).Type<NonNullType<StringType>>();
 
-            descriptor.Field(f => f.Events).Type<NonNullType<ListType<EventType>>>();
+            descriptor.Field(f => f.GetEvents(default(string))).Type<NonNullType<ListType<EventType>>>().Argument("titleContains",a=>a.Type<StringType>());
 
             descriptor.Field(f => f.News).Type<NonNullType<ListType<ArticleType>>>();
 
